@@ -38,13 +38,19 @@ def my_roberts(slika):
     # vaša implementacija
     return None
 
+def my_prewitt(img):
+    prewitt_x_kernel = np.array([[1, 0, -1],
+                                 [1, 0, -1],
+                                 [1, 0, -1]])
 
-def my_prewitt(slika):
-    # vaša implementacija
-    return None
+    prewitt_y_kernel = np.array([[1, 1, 1],
+                                 [0, 0, 0],
+                                 [-1, -1, -1]])
+
+    return apply_filter(img, prewitt_x_kernel, prewitt_y_kernel)
 
 
-def my_sobel(slika):
+def my_sobel(img):
     sobel_x_kernel = np.array([[-1, 0, 1],
                                [-2, 0, 2],
                                [-1, 0, 1]])
@@ -53,7 +59,7 @@ def my_sobel(slika):
                                [0, 0, 0],
                                [-1, -2, -1]])
 
-    return apply_filter(slika, sobel_x_kernel, sobel_y_kernel)
+    return apply_filter(img, sobel_x_kernel, sobel_y_kernel)
 
 
 def canny(slika, sp_prag, zg_prag):
@@ -76,6 +82,8 @@ def main():
     showImage("Slika", original)
 
     showImage("Slika Sobel", my_sobel(img))
+
+    showImage("Slika Prewitt", my_prewitt(img))
 
     cv2.waitKey()
 
