@@ -1,16 +1,17 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import cv2
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def showImage(name, img):
+    cv2.imshow(name, img)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def main():
+    img = cv2.imread("primer_iz_vaj/lenna.png", 0)
+    original = img
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    showImage("SLika", img)
+    cv2.waitKey()
+
+
+if __name__ == "__main__":
+    main()
