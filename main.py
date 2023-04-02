@@ -93,9 +93,8 @@ def my_sobel(img):
     return apply_filter_3x3(img, sobel_x_kernel, sobel_y_kernel)
 
 
-def canny(slika, sp_prag, zg_prag):
-    # vaša implementacija
-    return None
+def canny(img, sp_prag, zg_prag):
+    return cv2.Canny(img, sp_prag, zg_prag)
 
 
 def spremeni_kontrast(slika, alfa, beta):
@@ -117,6 +116,8 @@ def main():
     showImage("Slika Sobel", my_sobel(img))
 
     showImage("Slika Prewitt", my_prewitt(img))
+
+    showImage("Slika Canny", canny(img, 30, 180))
 
     cv2.waitKey()
 
