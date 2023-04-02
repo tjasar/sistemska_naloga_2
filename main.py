@@ -97,8 +97,9 @@ def canny(img, sp_prag, zg_prag):
     return cv2.Canny(img, sp_prag, zg_prag)
 
 
-def spremeni_kontrast(slika, alfa, beta):
-    pass
+def spremeni_kontrast(img, alfa, beta):
+    img = np.clip((alfa * img.astype(float) + beta), 0, 255).astype(np.uint8)
+    return img
 
 
 def showImage(name, img):
@@ -110,6 +111,8 @@ def main():
     original = img
 
     showImage("Slika", original)
+    showImage("Slika - kontrast svetlo", spremeni_kontrast(img, 2.8, -30))
+    showImage("Slika - kontrast temno", spremeni_kontrast(img, 1.2, -70))
 
     showImage("Slika Roberts", my_roberts(img))
 
