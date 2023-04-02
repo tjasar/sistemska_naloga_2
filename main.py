@@ -125,6 +125,7 @@ def main():
     img = cv2.imread("lenna.png", 0)
     original = img
 
+    # prikaz razlicnih slik z razlicno uporabljenimi detektorji robov
     showImage("Slika", original)
     showImage("Slika - glajena", cv2.GaussianBlur(original, (5, 5), 0))
     showImage("Slika - kontrast svetlo", spremeni_kontrast(img, 2.8, -30))
